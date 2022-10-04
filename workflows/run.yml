@@ -1,0 +1,14 @@
+
+name: CI
+on: [workflow_dispatch]
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checkout@v2
+      - name: Install Terraform
+        run: |
+          sudo apt update
+          sudo apt-get install terraform
+          terraform --version
