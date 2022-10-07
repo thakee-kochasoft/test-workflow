@@ -1,6 +1,10 @@
 
 name: CI
-on: [workflow_dispatch]
+
+on:
+  workflow_dispatch:
+    inputs:
+      inp:
 
 jobs:
   test-run:
