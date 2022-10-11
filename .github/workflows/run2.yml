@@ -1,0 +1,23 @@
+
+name: CI2
+on: [workflow_dispatch]
+
+jobs:
+  test-run:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Test
+        shell: cmd
+        run: |
+          cd src2/
+          python3 step.py 1 10
+          python3 step.py 2 10
+          python3 step.py 3 10
+          python3 step.py 4 10
+          python3 step.py 5 10
+          python3 step.py 6 10
+          python3 step.py 7 10
+          python3 step.py 8 10
+          python3 step.py 9 10
+          python3 step.py 10 10
