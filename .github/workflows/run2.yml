@@ -19,8 +19,14 @@ jobs:
       - name: Run Test
         shell: cmd
         run: |
+          cd Temp
           pwd
-          ls -a
+          ls
+          
           cd ..
           pwd
-          ls -a
+          ls
+          
+          cd ..
+          pwd
+          ls
