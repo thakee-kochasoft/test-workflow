@@ -1,6 +1,10 @@
 
 name: CI2
-on: [workflow_dispatch]
+on:
+  workflow_call:
+    secrets:
+      some_secret:
+        required: true
 
 jobs:
   test-run:
@@ -13,4 +17,5 @@ jobs:
       - name: Run Test
         shell: cmd
         run: |
+          echo secret = ${{ secrets.some_secret }}
           echo Hello world
