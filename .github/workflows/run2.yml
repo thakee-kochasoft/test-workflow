@@ -6,7 +6,15 @@ jobs:
   test-run:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
+    
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Checkout Bucket Repo
+        uses: actions/checkout@v3
+        with:
+          repository: thakee-kochasoft/Temp
+      
       - name: Run Test
         shell: cmd
         run: |
