@@ -10,23 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-      - name: Checkout Bucket Repo
-        uses: actions/checkout@v3
-        with:
-          repository: thakee-kochasoft/Temp
-          path: Temp
-      
       - name: Run Test
         shell: cmd
         run: |
-          cd Temp
-          pwd
-          ls
-          
-          cd ..
-          pwd
-          ls
-          
-          cd ..
-          pwd
-          ls
+          echo Hello world
