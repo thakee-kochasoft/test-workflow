@@ -17,7 +17,16 @@ jobs:
           npm --version
       
       - name: test outputs
-        run: echo $GITHUB_OUTPUT
+        id: step1
+        run: echo "exists=OK" >> $GITHUB_OUTPUT
+      
+      - name: If exists
+        if: steps.step1.outputs.exists == 'OK'
+        run: echo exists
+        
+      - name: If not
+        if: steps.step1.outputs.exists != 'OK'
+        run: echo not exists
       
       - name: Install ibmcloud cli
         run: |
