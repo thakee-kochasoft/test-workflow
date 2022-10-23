@@ -1,5 +1,5 @@
 
-name: CI
+name: Test Run
 
 on:
   workflow_dispatch:
@@ -8,20 +8,28 @@ on:
 
 jobs:
   test-run:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env:
       inp : ${{ github.event.inputs.inp }}
     steps:
       - uses: actions/checkout@v2
-      - name: Install Terraform
-        shell: cmd
-        env:
-          TF_VAR_api_key: ${{ secrets.IBM_API_KEY }}
+
+      - name: Check Node Version
         run: |
-          echo %inp%
-          curl -o terraform.zip https://releases.hashicorp.com/terraform/1.3.1/terraform_1.3.1_windows_amd64.zip
-          python3 -m zipfile -e terraform.zip terraform/
-          .\terraform\terraform.exe --version
-          cd src/
-          ..\terraform\terraform.exe init
-          ..\terraform\terraform.exe apply -auto-approve
+          node -v
+          npm --version
+      
+      - name: Main
+        run: |
+          cd src
+          python3 main.py
+      
+      - name: After Success
+        if: success()
+        run: |
+          echo Success
+
+      - name: After Failure
+        if: failure()
+        run: |
+          echo Failure
