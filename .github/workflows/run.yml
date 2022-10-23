@@ -22,7 +22,7 @@ jobs:
       - name: Main
         run: |
           cd src
-          python3 main.py
+          #python3 main.py
           
           chmod a+x test.sh
           ./test.sh
