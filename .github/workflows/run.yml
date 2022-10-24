@@ -5,11 +5,15 @@ on:
   workflow_dispatch:
     inputs:
       destroy:
+        type: boolean
         default: false
 
 jobs:
   test-run:
     runs-on: ubuntu-latest
+    
+    env:
+      DESTROY: ${{ github.event.inputs.destroy }}
     
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +26,7 @@ jobs:
       - name: Main
         run: |
           echo destroy1 = "$INPUT_destroy"
-          echo destroy2 = "$destroy"
+          echo destroy2 = "$DESTROY"
           cd src
           #python3 main.py
           
