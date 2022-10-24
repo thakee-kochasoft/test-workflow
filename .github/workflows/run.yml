@@ -19,28 +19,9 @@ jobs:
           node -v
           npm --version
       
-      - name: test outputs
-        id: step1
-        run: echo "exists=OK" >> $GITHUB_OUTPUT
-      
-      - name: If exists
-        if: steps.step1.outputs.exists == 'OK'
-        run: echo exists
-        
-      - name: If not
-        if: steps.step1.outputs.exists != 'OK'
-        run: echo not exists
-      
-      - name: Install ibmcloud cli
-        run: |
-          curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
-          ibmcloud login --apikey ${{ secrets.IBM_API_KEY }} --no-region
-          ibmcloud plugin install is
-          ibmcloud plugin install cloud-object-storage
-      
       - name: Main
         run: |
-          echo $INPUT_DESTROY
+          echo destroy = "$INPUT_DESTROY"
           if [[ "$INPUT_DESTROY" -eq "false" ]]; then echo false; fi
           cd src
           #python3 main.py
