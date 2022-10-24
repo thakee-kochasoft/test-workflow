@@ -23,6 +23,7 @@ jobs:
         run: |
           echo destroy = "$INPUT_DESTROY"
           if [[ "$INPUT_DESTROY" -eq "false" ]]; then echo false; fi
+          if [[ "$INPUT_DESTROY" -eq "true" ]]; then echo true; fi
           cd src
           #python3 main.py
           
