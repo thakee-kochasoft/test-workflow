@@ -25,6 +25,7 @@ jobs:
       
       - name: Main
         run: |
+          echo job = ${{ github.job }}
           echo destroy1 = "$INPUT_destroy"
           echo destroy2 = "$DESTROY"
           cd src
