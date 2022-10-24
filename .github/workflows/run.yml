@@ -21,9 +21,8 @@ jobs:
       
       - name: Main
         run: |
-          echo destroy = "$INPUT_DESTROY"
-          if [[ "$INPUT_DESTROY" -eq "false" ]]; then echo false; fi
-          if [[ "$INPUT_DESTROY" -eq "true" ]]; then echo true; fi
+          echo destroy1 = "$INPUT_destroy"
+          echo destroy2 = "$destroy"
           cd src
           #python3 main.py
           
