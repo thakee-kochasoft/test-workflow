@@ -17,17 +17,11 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-
-      - name: Check Node Version
-        run: |
-          node -v
-          npm --version
       
       - name: Main
         run: |
           echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-          echo destroy1 = "$INPUT_destroy"
-          echo destroy2 = "$DESTROY"
+          tsc --version
           cd src
           #python3 main.py
           
