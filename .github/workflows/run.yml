@@ -26,8 +26,9 @@ jobs:
           #python3 main.py
           
           chmod a+x test.sh
-          ./test.sh ${{ true }}
+          ./test.sh ${{ github.event.inputs.destroy }}
           echo $?
+          echo ${{ github.event.inputs.destroy }}
       
       - name: After Success
         if: success()
