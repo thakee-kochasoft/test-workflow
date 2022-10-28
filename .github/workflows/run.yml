@@ -21,17 +21,11 @@ jobs:
       - name: Main
         run: |
           echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-          tsc --version
-          cd src
-          #python3 main.py
+          echo env="$GITHUB_ENV"
+          echo "color=yellow" >> $GITHUB_ENV
           
-          chmod a+x test.sh
-          echo ${{ success() }}
-          echo ${{ failure() }}
-          ./test.sh ${{ success() }}
-          echo $?
-          echo ${{ success() }}
-          echo ${{ failure() }}
+      - name: Second
+        run: echo color="$color"
       
       - name: After Success
         if: success()
