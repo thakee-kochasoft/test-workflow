@@ -7,7 +7,7 @@ t = 10
 
 letters = string.ascii_letters + string.digits+ string.punctuation
 
-os.system('')
+os.system(''  )
 print ("Starting ... \033[32mSuccess!\033[0m")
 for i in range(N+1):
   print(f"step {i}/{N}")
