@@ -1,5 +1,5 @@
 
-name: Test Run
+name: Git repo workflow
 
 on:
   workflow_dispatch:
@@ -25,11 +25,12 @@ jobs:
           token: ${{ secrets.MY_GH_PAT }}
           path: tf-repo-1
 
-      - name: Check if clone success
+      - name: Upload a file to the repo
         run: |
-          cd tf-repo-1
-          pwd
-          ls -la
+          echo "helloworld" > hello.txt
+          git add .
+          git commit -m "hello.txt file added"
+          git push
 
       - name: After Success
         if: success()
