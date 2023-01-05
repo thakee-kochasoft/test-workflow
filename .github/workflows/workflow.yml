@@ -28,16 +28,17 @@ jobs:
       - name: Configure git
         run: |
           cd tf-repo-1
+          git config --global user.email "thakee-nathees@kochasoft.com"
+          git config --global user.name "thakee-kochasoft"
           git config --global credential.helper 'store --file ~/.git-credentials'
           echo "https://${{ secrets.MY_GH_PAT }}:x-oauth-basic@github.com" > ~/.git-credentials
 
+      - name: Upload source
+        run: |
           echo "helloworld" > hello.txt
           git add .
           git commit -m "hello.txt file added"
           git push
-
-      #- name: Upload source
-      #  run: |
 
       - name: After Success
         if: success()
