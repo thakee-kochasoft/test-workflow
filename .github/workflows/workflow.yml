@@ -25,12 +25,18 @@ jobs:
           token: ${{ secrets.MY_GH_PAT }}
           path: tf-repo-1
 
-      - name: Upload a file to the repo
+      - name: Configure git
         run: |
+          cd tf-repo-1
           echo "helloworld" > hello.txt
           git add .
           git commit -m "hello.txt file added"
           git push
+          # git config --global credential.helper 'store --file ~/.git-credentials'
+          # echo "https://${{ secrets.MY_GH_PAT }}:x-oauth-basic@github.com" > ~/.git-credentials
+
+      #- name: Upload source
+      #  run: |
 
       - name: After Success
         if: success()
