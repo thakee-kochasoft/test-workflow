@@ -1,1 +1,16 @@
 
+name: Git repo workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Hello
+        run: |
+          echo hello world!
