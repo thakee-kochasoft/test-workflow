@@ -1,5 +1,5 @@
 
-name: Git repo workflow
+name: Test
 
 on:
   workflow_dispatch:
