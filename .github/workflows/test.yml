@@ -18,4 +18,8 @@ jobs:
 
       - name: Hello
         run: |
-          echo ${{ matrix.repo }}
+          export GITHUB_USER=thakee-kochasoft
+          export GITHUB_TOKEN=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
+          export GITHUB_REPOSITORY=thakee-client-repos/demoorganisation-demoproject063
+          git clone https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          ls -la
