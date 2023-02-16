@@ -12,7 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Hello
+      - name: S1
         run: |
-          echo ${{ github.steps }}
+          ping google.com &
           echo hello world
+          
+      - name: S2
+        run: |
+          echo s1 start
+          sleep 20
+          echo s2 end
+        
