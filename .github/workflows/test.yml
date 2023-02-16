@@ -14,5 +14,5 @@ jobs:
 
       - name: Hello
         run: |
-          echo ${{ github.step }}
+          echo ${{ github.steps }}
           echo hello world
