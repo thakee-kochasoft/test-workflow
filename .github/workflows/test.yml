@@ -14,5 +14,5 @@ jobs:
 
       - name: Hello
         run: |
-          echo ${{ vars.MYVAR }}
-          ls -la
+          echo ${{ github.step }}
+          echo hello world
