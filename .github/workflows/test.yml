@@ -25,3 +25,9 @@ jobs:
         run: |
           echo s2
           
+          
+      - name: S2
+        if: github.event.inputs.input_1 == "hello"
+        run: |
+          echo s2
+          
