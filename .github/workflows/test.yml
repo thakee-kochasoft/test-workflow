@@ -3,6 +3,9 @@ name: Test
 
 on:
   workflow_dispatch:
+    inputs:
+      input_1:
+        default: "hello"
 
 jobs:
   test-run:
@@ -13,29 +16,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: S1
+        if: ${{ github.event.inputs.input_1 }} == "hello"
         run: |
-          chmod a+x ./run.sh
-          ./run.sh &
-          sleep 1
-          ls -la
-          echo ----------------------------------------------------------------
-          sleep 1
-          ls -la
-          echo ----------------------------------------------------------------
-          
+          echo s1
           
       - name: S2
+        if: ${{ github.event.inputs.input_1 == "hello" }}
         run: |
-          ls -la
-          echo ----------------------------------------------------------------
-          sleep 1
-          ls -la
-          echo ----------------------------------------------------------------
-          sleep 1
-          ls -la
-          echo ----------------------------------------------------------------
-          sleep 1
-          ls -la
-          echo ----------------------------------------------------------------
-          sleep 1
-        
+          echo s2
+          
