@@ -17,9 +17,13 @@ jobs:
 
       - name: S1
         if: |
-          ${{ github.event.inputs.input_1 }} != "hello" &&
-          "a" == "a"
+          github.inputs.input_1 == 'hello'
         run: |
-          echo s1
-          echo ${{ github.event.inputs.input_1 }}
+          echo true
+          
+      - name: S2
+        if: |
+          github.inputs.input_1 != 'hello'
+        run: |
+          echo false
           
