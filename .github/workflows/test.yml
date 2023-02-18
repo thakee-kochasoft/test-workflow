@@ -18,4 +18,4 @@ jobs:
       - name: S1
         run : |
           echo $GITHUB_REPOSITORY
-          python -c 'print("$GITHUB_REPOSITORY".split("/"))'
+          python -c "print('$GITHUB_REPOSITORY'.split('/'))"
