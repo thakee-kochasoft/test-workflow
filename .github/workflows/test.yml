@@ -16,12 +16,6 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: S1
-        if: ${{ github.event.inputs.input_1 == 'hello' }}
-        run: |
-          echo true
-          
-      - name: S2
-        if: ${{ github.event.inputs.input_1 != 'hello' }}
-        run: |
-          echo false
-          
+        run : |
+          echo $GITHUB_REPOSITORY
+          python -c 'print("$GITHUB_REPOSITORY".split("/"))'
