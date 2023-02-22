@@ -8,7 +8,9 @@ on:
         default: "hello"
 
 env:
-  BAR: "bar"
+  A: "a"
+  B: "b"
+  AB: ${{ env.A }}-${{ env.B }}
 
 jobs:
   test-run:
@@ -19,7 +21,5 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: S1
-        env:
-          FOO: ${{env.BAR}}
         run : |
-          echo --$FOO--
+          echo --$AB--
