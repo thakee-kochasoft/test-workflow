@@ -20,6 +20,6 @@ jobs:
 
       - name: S1
         env:
-          FOO: ${BAR}
+          FOO: ${{env.BAR}}
         run : |
           echo --$FOO--
