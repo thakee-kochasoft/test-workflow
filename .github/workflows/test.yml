@@ -22,4 +22,4 @@ jobs:
 
       - name: S1
         run : |
-          echo --$AB--
+          echo --${GITHUB_REF}--
