@@ -18,4 +18,4 @@ jobs:
 
       - name: S1
         run : |
-          echo --${{ GITHUB_BASE_REF }}--
+          echo --${ GITHUB_BASE_REF }--
