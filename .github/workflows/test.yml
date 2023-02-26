@@ -33,7 +33,7 @@ jobs:
           fi
 
           for name in "${NAMES[@]}"; do
-           echo "$name=$env_$name" >> $GITHUB_ENV
+           echo "$name=${env}_${name}" >> $GITHUB_ENV
           done
           
       - name: Echo
