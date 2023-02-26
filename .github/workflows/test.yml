@@ -18,4 +18,26 @@ jobs:
 
       - name: S1
         run : |
-          echo --${{ secrets }}--
+          
+          declare -a NAMES=(
+            "BACKEND_TOKEN"
+            "COS_ACCESS_KEY"
+            "COS_ACCESS_KEY"
+            "COS_SECRET_KEY"
+            "GH_TOKEN_CLIENT_REPOS"
+          )
+
+          env="DEV"
+          if [[ "$GITHUB_REF_NAME" == "demo" ]]; then
+            env="DEMO"
+          fi
+
+          for name in "${NAMES[@]}"; do
+           echo "$name=${env}_${name}" >> $GITHUB_ENV
+          done
+          
+      - name: Echo
+        run: |
+          echo token = ${{ secrets[env.BACKEND_TOKEN] }}
+          
+
