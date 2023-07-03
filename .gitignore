@@ -1,3 +1,4 @@
 src/.terraform/
 AR8gSbc*cFv7SK5VJYNWqLF4PyPZ1TaFesSSSu063KRcgX
 ghp_AIlmmax5zJ8OWRIdSqXxVvcG7cuVlRB4WNL2IX
+git clone https://${user}:${token}@github.com/${org}/${repo}
